@@ -1,0 +1,26 @@
+.header {
+  /* box model */
+  padding-top: 120px;
+  height: 400px;
+  width: 100%;
+  background-color: #967a5d;
+  background-image: url("https://www.transparenttextures.com/patterns/blizzard.png");
+
+  /* flex properties */
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+}
+
+.header-picture {
+  max-width: 200px;
+}
+
+.header-picture img {
+  width: 100%;
+}
+
+.header-username {
+  font-size: 1.5em;
+}
