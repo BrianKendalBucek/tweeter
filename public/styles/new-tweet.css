@@ -3,6 +3,7 @@
 
 .new-tweet {
   display: flex;
+  flex-direction: column;
 }
 
 form {
@@ -46,4 +47,66 @@ button {
   display: flex;
   justify-content: space-between;
   width: 100%;
+}
+
+#tweet-container {
+  /* Box Model */
+  border: 1px solid black;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+
+/* Flex Properties */
+  display: flex;
+  flex-direction: column;
+}
+
+.name-and-tag {
+  /* Box Model */
+  padding: .75em;
+  font-size: .75em;
+  /* Flex Properties */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.fa-face-smile {
+  padding-right: .5em;
+}
+
+.tag {
+  color: lightgrey;
+}
+
+#tweet-container h6 {
+  /* align-content: center; */
+  padding: 1em;
+}
+/* get rid of margine on h6 */
+
+.completed-tweet-text {
+  margin: .5em;
+  border-bottom: 4px solid black;
+  font-size: .75em;
+}
+
+.completed-tweet-text p{
+  padding-left: 1em;
+  padding-right: 1em;
+  margin-bottom: 1em;
+}
+
+.timespan {
+  /* Box Model */
+  padding: 0 2em 1.5em 2em;
+  font-size: .5em;
+
+  /* Flex Properties */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+footer i:hover {
+  color: goldenrod;
 }

@@ -20,12 +20,3 @@ $(document).ready(function() {
     }
   });
 });
-
-
-// keydown event
-// keyup event
-// keypress event
-// change event
-// input event
-
-// Which is the best event to detect the correct length of the input and update the counter?
