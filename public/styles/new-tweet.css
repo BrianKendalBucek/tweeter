@@ -60,6 +60,10 @@ button {
   flex-direction: column;
 }
 
+#tweet-container:hover {
+  box-shadow: 5px 5px lightblue;
+}
+
 .name-and-tag {
   /* Box Model */
   padding: .75em;
