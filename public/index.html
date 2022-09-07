@@ -21,10 +21,11 @@
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="./scripts/composer-char-counter.js"></script>
-
+    
     <!-- App JS -->
-    <script type="text/javascript" src="/scripts/client.js"></script>
+    <script type="text/javascript" src="./scripts/client.js"></script>
+    <script type="text/javascript" src="./scripts/composer-char-counter.js"></script>
+    <script type="text/javascript" src="./scripts/formSubmission.js"></script>
   </head>
 
   <body>
@@ -49,7 +50,7 @@
     <main class="container">
       <section class="new-tweet">
         <!-- <h2>Compose Tweet</h2> -->
-        <form action="/tweets/" method="POST">
+        <form id="tweet-form" action="/tweets/" method="POST">
           <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
           <div class="buttonCounter">
             <button type="submit">Tweet</button>
@@ -57,27 +58,9 @@
             <output name="counter" class="counter" for="tweet-text">140</output>
           </div>
         </form>
-        <article id="tweet-container">
-          <div class="name-and-tag">
-            <div>
-              <i class="fa-regular fa-face-smile"></i>
-              <span>Newton</span>
-            </div>
-            <span class="tag">@Sirlsaac</span>
-          </div>
-          <div class="completed-tweet-text">
-            <p>If I have seen further it is by standing on the shoulders of giants</p>
-          </div>
-          <footer class="timespan">
-            <span><b>10 days ago</b></span>
-            <div class="icons">
-              <i class="fa-solid fa-flag"></i>
-              <i class="fa-solid fa-retweet"></i>
-              <i class="fa-solid fa-heart"></i>
-            </div>
-          </footer>
-        </article>
       </section>
+
+      <section id="tweets-container"></section>
     </main>
   </body>
 </html>
