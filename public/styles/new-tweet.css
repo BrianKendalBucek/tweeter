@@ -1,5 +1,15 @@
-/* Box Model */
-/* Flex Properties */
+.error-message {
+  /* Box Model */
+  border: 2px solid red;
+  color: red;
+  width: 20em;
+
+  /* Flex Properties */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
 
 .new-tweet {
   display: flex;

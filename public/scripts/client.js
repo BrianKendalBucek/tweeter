@@ -34,6 +34,18 @@ $(document).ready(() => {
     return $tweet;
   };
 
+  const errorMessageTemplate = function (errorMessage) {
+
+    let errorTemplate = 
+      `<div class="error-message">
+        <i class="fa-solid fa-circle-exclamation"></i>
+        <p>${errorMessage}</p>
+        <i class="fa-solid fa-circle-exclamation"></i>
+      </div>`
+
+    return errorTemplate;
+  };
+
   // Takes in an array of tweet objects from the database, loops through, creates tweets using template, appends all to #tweet-container.
   const renderTweets = function (tweets) {
     for (const tweet of tweets) {
@@ -52,23 +64,29 @@ $(document).ready(() => {
   $("#tweet-form").submit(function (event) {
     // Prevents the default behaviour of the page refreshing upon submitting.
     event.preventDefault();
+    $("#error-container").empty();
     // Turns the form data into a query string to send to the server.
     const serializedForm = $(this).serialize();
     console.log(serializedForm);
     // Validation code used to verify the input abides by the basic rules.
     let textContent = $("#tweet-text").val();
     if (textContent.length > 140) {
-      alert("Text content is too long");
+      const tooLong = "   Text content is too long    ";
+      const newError = errorMessageTemplate(tooLong);
+      $("#error-container").append(newError);
       return;
     }
     if (textContent.length === 0 || textContent === null) {
-      alert("Add content");
+      const nothing = "   Add content   ";
+      const newError = errorMessageTemplate(nothing);
+      $("#error-container").append(newError);
       return;
     }
     // Sending the tweets to the server as the query string created above.
     $.post("/tweets", serializedForm)
-      .then((res) => { console.log("form successfully submitted", res); $("#tweets-container").empty(); loadTweets() });
+      .then((res) => { console.log("form successfully submitted", res); $("#tweets-container"); loadTweets() });
   });
 
   loadTweets();
 });
+
