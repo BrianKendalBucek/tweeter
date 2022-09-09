@@ -1,29 +1,7 @@
+// Detects when the DOM is ready for JS code to execute.
 $(document).ready(() => {
-  // const data = [
-  //   {
-  //     user: {
-  //       name: "Newton",
-  //       avatars: "https://i.imgur.com/73hZDYK.png",
-  //       handle: "@SirIsaac",
-  //     },
-  //     content: {
-  //       text: "If I have seen further it is by standing on the shoulders of giants",
-  //     },
-  //     created_at: 1461116232227,
-  //   },
-  //   {
-  //     user: {
-  //       name: "Descartes",
-  //       avatars: "https://i.imgur.com/nlhLi3I.png",
-  //       handle: "@rd",
-  //     },
-  //     content: {
-  //       text: "Je pense , donc je suis",
-  //     },
-  //     created_at: 1461113959088,
-  //   },
-  // ];
 
+  // Tweet structure
   const createTweetElement = function (tweet) {
     let $tweet = `<article class="tweet-container">
             <div class="name-and-tag">
@@ -49,43 +27,43 @@ $(document).ready(() => {
     return $tweet;
   };
 
+  // Takes in an array of tweet objects from the database,
+  // loops through the tweets,
+  // calls createTweetElement for each tweet,
+  // takes return value and appends it to the tweets container.
   const renderTweets = function (tweets) {
     for (const tweet of tweets) {
       const tweetElement = createTweetElement(tweet);
-      $("#tweets-container").append(tweetElement);
+      $("#tweets-container").prepend(tweetElement);
     }
   };
-
-  // renderTweets(data);
-
+  
+  // Uses jQuery and AJAX to make a request to /tweets and receive the array of tweets as JSON.
+  function loadTweets() {
+    $.ajax("/tweets", { method: 'GET' })
+      .then((tweets) => { console.log("form successfully retrieved", tweets); renderTweets(tweets)});
+  };
+  
   $("#tweet-form").submit(function (event) {
+    // To prevent the default behaviour of the page refreshing upon submitting.
     event.preventDefault();
+    // To turn the form data into a query string to send to the server in the data field of the AJAX POST REQUEST.
     const serializedForm = $(this).serialize();
     console.log(serializedForm);
-    // validation code
+    // Validation code
     let textContent = $("#tweet-text").val();
     if (textContent.length > 140) {
       alert("Text content is too long");
       return;
     }
-    if (textContent.length === 0 || tweetContent === null) {
+    if (textContent.length === 0 || textContent === null) {
       alert("Add content");
       return;
     }
+    // Sending the tweets to the server as the query string created above.
     $.post("/tweets", serializedForm)
-      .then((data) => { console.log("form successfully submitted", data); loadTweets() });
-      // .catch
-      // required
-      // min and max length
-
+      .then((res) => { console.log("form successfully submitted", res); $("#tweets-container").empty(); loadTweets() });
   });
-
-// The loadtweets function will use jQuery to make a request to /tweets and receive the array of tweets as JSON.
-
-  function loadTweets() {
-    $.ajax("/tweets", { method: 'GET' })
-      .then((tweets) => { console.log("form successfully retrieved", tweets); renderTweets(tweets)});
-  };
 
   loadTweets();
 });
