@@ -1,8 +1,15 @@
 // Detects when the DOM is ready for JS code to execute.
 $(document).ready(() => {
+  
+      const escape = function (str) {
+        let div = document.createElement("div");
+        div.appendChild(document.createTextNode(str));
+        return div.innerHTML;
+      };
 
-  // Tweet structure
+  // Tweet template.
   const createTweetElement = function (tweet) {
+
     let $tweet = `<article class="tweet-container">
             <div class="name-and-tag">
               <div>
@@ -12,7 +19,7 @@ $(document).ready(() => {
               <span class="tag">${tweet.user.handle}</span>
             </div>
             <div class="completed-tweet-text">
-              <p>${tweet.content.text}</p>
+              <p>${escape(tweet.content.text)}</p>
             </div>
             <footer class="timespan">
               <span><b>${timeago.format(tweet.created_at)}</b></span>
@@ -27,10 +34,7 @@ $(document).ready(() => {
     return $tweet;
   };
 
-  // Takes in an array of tweet objects from the database,
-  // loops through the tweets,
-  // calls createTweetElement for each tweet,
-  // takes return value and appends it to the tweets container.
+  // Takes in an array of tweet objects from the database, loops through, creates tweets using template, appends all to #tweet-container.
   const renderTweets = function (tweets) {
     for (const tweet of tweets) {
       const tweetElement = createTweetElement(tweet);
@@ -38,19 +42,20 @@ $(document).ready(() => {
     }
   };
   
-  // Uses jQuery and AJAX to make a request to /tweets and receive the array of tweets as JSON.
+  // Makes a request to /tweets server side database and receive the array of tweets as JSON. (jQuery & AJAX)
   function loadTweets() {
     $.ajax("/tweets", { method: 'GET' })
       .then((tweets) => { console.log("form successfully retrieved", tweets); renderTweets(tweets)});
   };
   
+  // Re-defines the submit behaviour, validates the input, and sends to server serialized using jQuery.
   $("#tweet-form").submit(function (event) {
-    // To prevent the default behaviour of the page refreshing upon submitting.
+    // Prevents the default behaviour of the page refreshing upon submitting.
     event.preventDefault();
-    // To turn the form data into a query string to send to the server in the data field of the AJAX POST REQUEST.
+    // Turns the form data into a query string to send to the server.
     const serializedForm = $(this).serialize();
     console.log(serializedForm);
-    // Validation code
+    // Validation code used to verify the input abides by the basic rules.
     let textContent = $("#tweet-text").val();
     if (textContent.length > 140) {
       alert("Text content is too long");
