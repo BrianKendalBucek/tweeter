@@ -62,8 +62,22 @@ $(document).ready(() => {
     event.preventDefault();
     const serializedForm = $(this).serialize();
     console.log(serializedForm);
+    // validation code
+    let textContent = $("#tweet-text").val();
+    if (textContent.length > 140) {
+      alert("Text content is too long");
+      return;
+    }
+    if (textContent.length === 0 || tweetContent === null) {
+      alert("Add content");
+      return;
+    }
     $.post("/tweets", serializedForm)
       .then((data) => { console.log("form successfully submitted", data); loadTweets() });
+      // .catch
+      // required
+      // min and max length
+
   });
 
 // The loadtweets function will use jQuery to make a request to /tweets and receive the array of tweets as JSON.
