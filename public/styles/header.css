@@ -3,6 +3,7 @@
   padding-top: 120px;
   height: 400px;
   width: 100%;
+  color: white;
   background-color: #967a5d;
   background-image: url("https://www.transparenttextures.com/patterns/blizzard.png");
 
@@ -11,6 +12,28 @@
   flex-direction: column;
   justify-items: center;
   align-items: center;
+}
+
+@media screen and (max-width: 767px) {
+  .header {
+    padding-top: 3em;
+    height: 19em;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  #header-and-main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-top: 7em;
+  }
+  .header {
+    width: 20em;
+    height: 20em;
+    padding-top: 4em;
+    justify-content: space-around;
+  }
 }
 
 .header-picture {

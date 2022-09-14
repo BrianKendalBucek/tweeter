@@ -39,30 +39,32 @@
       </div>
     </nav>
 
-    <!-- Header -->
-    <header class="header">
-      <div class="header-picture">
-          <img src="/images/profile-hex.png"> 
-      </div>
-      <p class="header-username"><b>Brian</b> Bucek</p>
-    </header>
+    <div id="header-and-main">
 
-    <!-- Page-specific (main) content here -->
-    <main class="container">
-      <section class="new-tweet">
-        <!-- <h2>Compose Tweet</h2> -->
-        <form id="tweet-form" action="/tweets" method="POST">
-        <div id="error-container"></div>
-          <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
-          <div class="buttonCounter">
-            <button type="submit">Tweet</button>
-            <div id="textColor" style="display: none; color: red;"></div>
-            <output name="counter" class="counter" for="tweet-text">140</output>
-          </div>
-        </form>
-      </section>
-
-      <section id="tweets-container"></section>
-    </main>
+      <header class="header">
+        <div class="header-picture">
+            <img src="/images/profile-hex.png"> 
+        </div>
+        <p class="header-username"><b>Brian</b> Bucek</p>
+      </header>
+  
+      <!-- Page-specific (main) content here -->
+      <main class="container">
+        <section class="new-tweet">
+          <!-- <h2>Compose Tweet</h2> -->
+          <form id="tweet-form" action="/tweets" method="POST">
+          <div id="error-container"></div>
+            <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
+            <div class="buttonCounter">
+              <button type="submit">Tweet</button>
+              <div id="textColor" style="display: none; color: red;"></div>
+              <output name="counter" class="counter" for="tweet-text">140</output>
+            </div>
+          </form>
+        </section>
+  
+        <section id="tweets-container"></section>
+      </main>
+    </div><!-- Header -->
   </body>
 </html>

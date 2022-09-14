@@ -12,8 +12,13 @@
 }
 
 .new-tweet {
+  /* Box Model */
+  padding: 0 1em;
+
+  /* Flex Properties */
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 form {
@@ -34,9 +39,10 @@ form {
   font-weight: 600;
   border: 0;
   width: 100%;
-  height: 40px;
+  height: 27px;
   border-bottom: 4px solid black;
   background-color: transparent;
+
 }
 
 button {
