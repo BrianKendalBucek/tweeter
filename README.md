@@ -24,5 +24,5 @@ This repository is the starter code for the project: Students will fork and clon
 
 # Screenshots
 
-!["Smaller screen style"] (public/images/Smaller Screen Style.png)
-!["Larger screen style"] (public/images/Desktop Style.png)
+!["Smaller screen style"] (./public/images/Smaller%20 Screen Style.png)
+!["Larger screen style"] (./public/images/Desktop%20Style.png)
