@@ -1,11 +1,11 @@
 // Detects when the DOM is ready for JS code to execute.
 $(document).ready(() => {
-  
-      const escape = function (str) {
-        let div = document.createElement("div");
-        div.appendChild(document.createTextNode(str));
-        return div.innerHTML;
-      };
+
+  const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
 
   // Tweet template.
   const createTweetElement = function (tweet) {
@@ -36,7 +36,7 @@ $(document).ready(() => {
 
   const errorMessageTemplate = function (errorMessage) {
 
-    let errorTemplate = 
+    let errorTemplate =
       `<div class="error-message">
         <i class="fa-solid fa-circle-exclamation"></i>
         <p>${errorMessage}</p>
@@ -53,13 +53,13 @@ $(document).ready(() => {
       $("#tweets-container").prepend(tweetElement);
     }
   };
-  
+
   // Makes a request to /tweets server side database and receive the array of tweets as JSON. (jQuery & AJAX)
   function loadTweets() {
     $.ajax("/tweets", { method: 'GET' })
-      .then((tweets) => { console.log("form successfully retrieved", tweets); renderTweets(tweets)});
+      .then((tweets) => { console.log("form successfully retrieved", tweets); $("#tweets-container").empty(); renderTweets(tweets) });
   };
-  
+
   // Re-defines the submit behaviour, validates the input, and sends to server serialized using jQuery.
   $("#tweet-form").submit(function (event) {
     // Prevents the default behaviour of the page refreshing upon submitting.

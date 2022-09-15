@@ -25,7 +25,7 @@ form {
   /* Box Model */
   width: 100%;
   margin-top: 1em;
-  
+
   /* Flex Properties */
   flex-direction: column;
   display: flex;
@@ -35,27 +35,26 @@ form {
 
 #tweet-text {
   resize: none;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   font-weight: 600;
   border: 0;
   width: 100%;
   height: 27px;
   border-bottom: 4px solid black;
   background-color: transparent;
-
 }
 
 button {
-  font-family: 'Bungee', cursive;
-  background-color: #4056A1;
+  font-family: "Bungee", cursive;
+  background-color: #4056a1;
   color: #f4f1ec;
-  border: #4056A1;
-  margin-top: .5em;
+  border: #4056a1;
+  margin-top: 0.5em;
 }
 
 .counter {
-  margin-top: .5em;
-  font-family: 'Bungee', cursive;
+  margin-top: 0.5em;
+  font-family: "Bungee", cursive;
   font-weight: 600;
 }
 
@@ -71,7 +70,7 @@ button {
   margin-top: 1.5em;
   margin-bottom: 1.5em;
 
-/* Flex Properties */
+  /* Flex Properties */
   display: flex;
   flex-direction: column;
 }
@@ -82,8 +81,8 @@ button {
 
 .name-and-tag {
   /* Box Model */
-  padding: .75em;
-  font-size: .75em;
+  padding: 0.75em;
+  font-size: 0.75em;
   /* Flex Properties */
   display: flex;
   flex-direction: row;
@@ -91,7 +90,7 @@ button {
 }
 
 .fa-face-smile {
-  padding-right: .5em;
+  padding-right: 0.5em;
 }
 
 .tag {
@@ -105,12 +104,12 @@ button {
 /* get rid of margine on h6 */
 
 .completed-tweet-text {
-  margin: .5em;
+  margin: 0.5em;
   border-bottom: 4px solid black;
-  font-size: .75em;
+  font-size: 0.75em;
 }
 
-.completed-tweet-text p{
+.completed-tweet-text p {
   padding-left: 1em;
   padding-right: 1em;
   margin-bottom: 1em;
@@ -119,7 +118,7 @@ button {
 .timespan {
   /* Box Model */
   padding: 0 2em 1.5em 2em;
-  font-size: .5em;
+  font-size: 0.5em;
 
   /* Flex Properties */
   display: flex;
